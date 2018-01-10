@@ -5,9 +5,12 @@
  */
 package Controller;
 
+import Model.Persona;
 import java.io.IOException;
 import java.net.URL;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -23,9 +26,24 @@ import javafx.stage.Stage;
  * @author Victor
  */
 public class libretaDirecciones extends Application {
+    private ObservableList datosPersona = FXCollections.observableArrayList();
     private Stage escenarioPrincipal;
     private BorderPane layoutPrincipal;
     private AnchorPane vistaPersona;
+    
+    //Datos de ejemplo
+    public libretaDirecciones(){
+        datosPersona.add(new Persona("Víctor", "Choza Merino"));
+        datosPersona.add(new Persona("María", "Choza Merino"));
+        datosPersona.add(new Persona("Marian", "Merino Casado"));
+        datosPersona.add(new Persona("Juan", "Anguiano Sanjurjo"));
+        
+    }
+    
+    //Método para devolver los datos como lista observable
+    public ObservableList getDatosPersona(){
+        return datosPersona;
+    }
     
     @Override
     public void start(Stage escenarioPrincipal) {
